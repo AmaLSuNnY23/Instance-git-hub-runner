@@ -1,0 +1,18 @@
+name: Build java File Test
+on:
+  push:
+    branches: [main]
+jobs:
+  build:
+    runs-on: test
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4.2.2
+    - name: maven validate
+      run: mvn validate
+    - name: clean the package
+      run: mvn clean install
+    - name: List build artifacts
+      run: ls -la target
+    
+      
